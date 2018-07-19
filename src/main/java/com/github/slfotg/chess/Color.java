@@ -14,6 +14,7 @@ public enum Color {
         return code;
     }
 
+    @Override
     public String toString() {
         return Character.toString(code);
     }

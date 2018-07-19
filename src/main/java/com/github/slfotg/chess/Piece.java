@@ -39,6 +39,7 @@ public enum Piece {
         return code;
     }
 
+    @Override
     public String toString() {
         return Character.toString(code);
     }
