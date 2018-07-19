@@ -14,6 +14,13 @@ public enum Color {
         return code;
     }
 
+    public Color getNextColor() {
+        if (this == WHITE) {
+            return BLACK;
+        }
+        return WHITE;
+    }
+
     @Override
     public String toString() {
         return Character.toString(code);
