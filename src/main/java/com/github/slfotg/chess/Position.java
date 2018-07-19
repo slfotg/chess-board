@@ -6,6 +6,12 @@ public class Position {
     private File file;
 
     public Position(Rank rank, File file) {
+        if (rank == null) {
+            throw new IllegalArgumentException("Rank cannot be null");
+        }
+        if (file == null) {
+            throw new IllegalArgumentException("File cannot be null");
+        }
         this.rank = rank;
         this.file = file;
     }
