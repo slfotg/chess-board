@@ -44,6 +44,7 @@ public enum Rank {
         }
     }
 
+    @Override
     public String toString() {
         return Integer.toString(rankNumber);
     }
