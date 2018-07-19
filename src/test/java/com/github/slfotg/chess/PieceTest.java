@@ -1,6 +1,7 @@
 package com.github.slfotg.chess;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +15,25 @@ public class PieceTest {
         assertEquals('R', Piece.ROOK.getCode());
         assertEquals('Q', Piece.QUEEN.getCode());
         assertEquals('K', Piece.KING.getCode());
+    }
+
+    @Test
+    public void testFromCode() {
+        assertEquals(Piece.PAWN, Piece.fromCode('P'));
+        assertEquals(Piece.KNIGHT, Piece.fromCode('N'));
+        assertEquals(Piece.BISHOP, Piece.fromCode('B'));
+        assertEquals(Piece.ROOK, Piece.fromCode('R'));
+        assertEquals(Piece.QUEEN, Piece.fromCode('Q'));
+        assertEquals(Piece.KING, Piece.fromCode('K'));
+
+        assertEquals(Piece.PAWN, Piece.fromCode('p'));
+        assertEquals(Piece.KNIGHT, Piece.fromCode('n'));
+        assertEquals(Piece.BISHOP, Piece.fromCode('b'));
+        assertEquals(Piece.ROOK, Piece.fromCode('r'));
+        assertEquals(Piece.QUEEN, Piece.fromCode('q'));
+        assertEquals(Piece.KING, Piece.fromCode('k'));
+
+        assertThrows(IllegalArgumentException.class, () -> Piece.fromCode('*'));
     }
 
     @Test
@@ -44,6 +64,11 @@ public class PieceTest {
         assertEquals("R", Piece.ROOK.toString(Color.WHITE));
         assertEquals("Q", Piece.QUEEN.toString(Color.WHITE));
         assertEquals("K", Piece.KING.toString(Color.WHITE));
+    }
+
+    @Test
+    public void testNullColor() {
+        assertThrows(IllegalArgumentException.class, () -> Piece.KING.toString(null));
     }
 
     @Test
