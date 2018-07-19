@@ -9,7 +9,7 @@ public enum CastlingRights {
     }
 
     public boolean canCastleQueenSide() {
-        return this == KING_SIDE || this == BOTH;
+        return this == QUEEN_SIDE || this == BOTH;
     }
 
     public static CastlingRights parseWhiteRights(String code) {

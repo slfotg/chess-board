@@ -25,4 +25,10 @@ public class ColorTest {
         assertEquals("w", Color.WHITE.toString());
         assertEquals("b", Color.BLACK.toString());
     }
+    
+    @Test
+    public void testGetNextColor() {
+        assertEquals(Color.BLACK, Color.WHITE.getNextColor());
+        assertEquals(Color.WHITE, Color.BLACK.getNextColor());
+    }
 }
