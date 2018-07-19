@@ -25,4 +25,43 @@ public class ChessBoard {
     private int fullMoveNumber;
     private int halfMoveClock;
     
+    public Optional<ColoredPiece> getPieceAt(Position position) {
+        if (whitePawns.hasPieceAt(position)) {
+            return Optional.of(new ColoredPiece(Color.WHITE, Piece.PAWN));
+        }
+        if (whiteKnights.hasPieceAt(position)) {
+            return Optional.of(new ColoredPiece(Color.WHITE, Piece.KNIGHT));
+        }
+        if (whiteBishops.hasPieceAt(position)) {
+            return Optional.of(new ColoredPiece(Color.WHITE, Piece.BISHOP));
+        }
+        if (whiteRooks.hasPieceAt(position)) {
+            return Optional.of(new ColoredPiece(Color.WHITE, Piece.ROOK));
+        }
+        if (whiteQueens.hasPieceAt(position)) {
+            return Optional.of(new ColoredPiece(Color.WHITE, Piece.QUEEN));
+        }
+        if (whiteKings.hasPieceAt(position)) {
+            return Optional.of(new ColoredPiece(Color.WHITE, Piece.KING));
+        }
+        if (blackPawns.hasPieceAt(position)) {
+            return Optional.of(new ColoredPiece(Color.BLACK, Piece.PAWN));
+        }
+        if (blackKnights.hasPieceAt(position)) {
+            return Optional.of(new ColoredPiece(Color.BLACK, Piece.KNIGHT));
+        }
+        if (blackBishops.hasPieceAt(position)) {
+            return Optional.of(new ColoredPiece(Color.BLACK, Piece.BISHOP));
+        }
+        if (blackRooks.hasPieceAt(position)) {
+            return Optional.of(new ColoredPiece(Color.BLACK, Piece.ROOK));
+        }
+        if (blackQueens.hasPieceAt(position)) {
+            return Optional.of(new ColoredPiece(Color.BLACK, Piece.QUEEN));
+        }
+        if (blackKings.hasPieceAt(position)) {
+            return Optional.of(new ColoredPiece(Color.BLACK, Piece.KING));
+        }
+        return Optional.empty();
+    }
 }
