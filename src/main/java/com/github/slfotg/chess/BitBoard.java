@@ -12,6 +12,22 @@ public class BitBoard {
         if (position == null) {
             throw new IllegalArgumentException("Position cannot be null");
         }
-        return (bits & 1L << position.getIndex()) != 0;
+        return (bits & positionToBit(position)) != 0;
+    }
+
+    public void setPiece(Position position) {
+        bits |= positionToBit(position);
+    }
+
+    public void removePiece(Position position) {
+        bits &= ~positionToBit(position);
+    }
+
+    public long getBits() {
+        return bits;
+    }
+
+    protected static long positionToBit(Position position) {
+        return 1L << position.getIndex();
     }
 }
