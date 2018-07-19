@@ -1,7 +1,11 @@
 package com.github.slfotg.chess;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 
@@ -30,5 +34,23 @@ public class PositionTest {
     @Test
     public void testPositionNullFile() {
         assertThrows(IllegalArgumentException.class, () -> new Position(Rank.ONE, null));
+    }
+
+    @Test
+    public void testFromCode() {
+        Optional<Position> position = Position.fromCode("e3");
+        assertTrue(position.isPresent());
+        assertEquals(File.E, position.get().getFile());
+        assertEquals(Rank.THREE, position.get().getRank());
+
+        position = Position.fromCode("-");
+        assertFalse(position.isPresent());
+
+        assertThrows(IllegalArgumentException.class, () -> Position.fromCode(null));
+        assertThrows(IllegalArgumentException.class, () -> Position.fromCode("Hello World"));
+        assertThrows(IllegalArgumentException.class, () -> Position.fromCode("ee3"));
+        assertThrows(IllegalArgumentException.class, () -> Position.fromCode("e33"));
+        assertThrows(IllegalArgumentException.class, () -> Position.fromCode("e"));
+        assertThrows(IllegalArgumentException.class, () -> Position.fromCode("3"));
     }
 }
