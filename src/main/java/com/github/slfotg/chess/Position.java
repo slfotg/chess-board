@@ -1,5 +1,7 @@
 package com.github.slfotg.chess;
 
+import java.util.Optional;
+
 public class Position {
 
     private Rank rank;
@@ -26,6 +28,19 @@ public class Position {
 
     public int getIndex() {
         return file.getIndex() + rank.getIndex() * 8;
+    }
+    
+    public static Optional<Position> fromCode(String code) {
+        if (code == null) {
+            throw new IllegalArgumentException("Code cannot be null");
+        } else if (code.equals("-")) {
+            return Optional.empty();
+        } else if (!code.matches("[a-h]{1}[1-8]{1}")) {
+            throw new IllegalArgumentException(String.format("Code {%s} cannot be parsed to a Position", code));
+        }
+        File file = File.fromCode(code.charAt(0));
+        Rank rank = Rank.fromCode(code.charAt(1));
+        return Optional.of(new Position(rank, file));
     }
 
     public String toString() {

@@ -23,6 +23,29 @@ public enum File {
         return index;
     }
 
+    public static File fromCode(char code) {
+        switch (code) {
+        case 'a':
+            return A;
+        case 'b':
+            return B;
+        case 'c':
+            return C;
+        case 'd':
+            return D;
+        case 'e':
+            return E;
+        case 'f':
+            return F;
+        case 'g':
+            return G;
+        case 'h':
+            return H;
+        default:
+            throw new IllegalArgumentException(String.format("Code %s cannot be converted to a File", code));
+        }
+    }
+
     public String toString() {
         return Character.toString(code);
     }

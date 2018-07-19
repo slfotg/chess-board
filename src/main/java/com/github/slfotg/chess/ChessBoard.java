@@ -5,26 +5,26 @@ import java.util.StringJoiner;
 
 public class ChessBoard {
 
-    private BitBoard whitePawns;
-    private BitBoard whiteKnights;
-    private BitBoard whiteBishops;
-    private BitBoard whiteRooks;
-    private BitBoard whiteQueens;
-    private BitBoard whiteKings;
+    protected BitBoard whitePawns = new BitBoard(0L);
+    protected BitBoard whiteKnights = new BitBoard(0L);
+    protected BitBoard whiteBishops = new BitBoard(0L);
+    protected BitBoard whiteRooks = new BitBoard(0L);
+    protected BitBoard whiteQueens = new BitBoard(0L);
+    protected BitBoard whiteKings = new BitBoard(0L);
 
-    private BitBoard blackPawns;
-    private BitBoard blackKnights;
-    private BitBoard blackBishops;
-    private BitBoard blackRooks;
-    private BitBoard blackQueens;
-    private BitBoard blackKings;
+    protected BitBoard blackPawns = new BitBoard(0L);
+    protected BitBoard blackKnights = new BitBoard(0L);
+    protected BitBoard blackBishops = new BitBoard(0L);
+    protected BitBoard blackRooks = new BitBoard(0L);
+    protected BitBoard blackQueens = new BitBoard(0L);
+    protected BitBoard blackKings = new BitBoard(0L);
 
-    private Color activeColor;
-    private Optional<Position> enPassant;
-    private CastlingRights whiteCastlingRights;
-    private CastlingRights blackCastlingRights;
-    private int fullMoveNumber;
-    private int halfMoveClock;
+    protected Color activeColor = Color.WHITE;
+    protected Optional<Position> enPassant = Optional.empty();
+    protected CastlingRights whiteCastlingRights = CastlingRights.BOTH;
+    protected CastlingRights blackCastlingRights = CastlingRights.BOTH;
+    protected int fullMoveNumber = 0;
+    protected int halfMoveClock = 0;
 
     public Optional<ColoredPiece> getPieceAt(Position position) {
         if (whitePawns.hasPieceAt(position)) {
@@ -80,7 +80,7 @@ public class ChessBoard {
                         rankBuilder.append(Integer.toString(skips));
                     }
                     skips = 0;
-                    rankBuilder.append(piece.get().toString());
+                    rankBuilder.append(piece.get().getFenCode());
                 } else {
                     skips += 1;
                 }
@@ -90,12 +90,64 @@ public class ChessBoard {
             }
             pieceJoiner.add(rankBuilder.toString());
         }
+        fenJoiner.add(pieceJoiner.toString());
         fenJoiner.add(activeColor.toString());
-        fenJoiner.add(whiteCastlingRights.toString(Color.WHITE));
-        fenJoiner.add(blackCastlingRights.toString(Color.BLACK));
+        fenJoiner.add(CastlingRights.toString(whiteCastlingRights, blackCastlingRights));
         fenJoiner.add(enPassant.isPresent() ? enPassant.get().toString() : "-");
         fenJoiner.add(Integer.toString(halfMoveClock));
         fenJoiner.add(Integer.toString(fullMoveNumber));
         return fenJoiner.toString();
+    }
+
+    public void setPieceAt(ColoredPiece piece, Position position) {
+        if (piece == null) {
+            throw new IllegalArgumentException("ColoredPiece cannot be null");
+        }
+        if (position == null) {
+            throw new IllegalArgumentException("Position cannot be null");
+        }
+        if (piece.getColor() == Color.WHITE) {
+            switch(piece.getPiece()) {
+            case PAWN:
+                whitePawns.setPiece(position);
+                break;
+            case KNIGHT:
+                whiteKnights.setPiece(position);
+                break;
+            case BISHOP:
+                whiteBishops.setPiece(position);
+                break;
+            case ROOK:
+                whiteRooks.setPiece(position);
+                break;
+            case QUEEN:
+                whiteQueens.setPiece(position);
+                break;
+            case KING:
+                whiteKings.setPiece(position);
+                break;
+            }
+        } else {
+            switch(piece.getPiece()) {
+            case PAWN:
+                blackPawns.setPiece(position);
+                break;
+            case KNIGHT:
+                blackKnights.setPiece(position);
+                break;
+            case BISHOP:
+                blackBishops.setPiece(position);
+                break;
+            case ROOK:
+                blackRooks.setPiece(position);
+                break;
+            case QUEEN:
+                blackQueens.setPiece(position);
+                break;
+            case KING:
+                blackKings.setPiece(position);
+                break;
+            }
+        }
     }
 }

@@ -12,6 +12,40 @@ public enum CastlingRights {
         return this == KING_SIDE || this == BOTH;
     }
 
+    public static CastlingRights parseWhiteRights(String code) {
+        if (code.contains("K")) {
+            if (code.contains("Q")) {
+                return BOTH;
+            } else {
+                return KING_SIDE;
+            }
+        } else if (code.contains("Q")) {
+            return QUEEN_SIDE;
+        }
+        return NONE;
+    }
+
+    public static CastlingRights parseBlackRights(String code) {
+        if (code.contains("k")) {
+            if (code.contains("q")) {
+                return BOTH;
+            } else {
+                return KING_SIDE;
+            }
+        } else if (code.contains("q")) {
+            return QUEEN_SIDE;
+        }
+        return NONE;
+    }
+    
+    public static String toString(CastlingRights whiteRights, CastlingRights blackRights) {
+        String s = whiteRights.toString(Color.WHITE) + blackRights.toString(Color.BLACK);
+        if (s.length() > 0) {
+            return s;
+        }
+        return "-";
+    }
+
     public String toString(Color color) {
         String castleRights = "";
         switch (this) {

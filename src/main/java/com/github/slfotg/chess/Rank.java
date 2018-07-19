@@ -21,6 +21,29 @@ public enum Rank {
         return rankNumber - 1;
     }
 
+    public static Rank fromCode(char code) {
+        switch (code) {
+        case '1':
+            return ONE;
+        case '2':
+            return TWO;
+        case '3':
+            return THREE;
+        case '4':
+            return FOUR;
+        case '5':
+            return FIVE;
+        case '6':
+            return SIX;
+        case '7':
+            return SEVEN;
+        case '8':
+            return EIGHT;
+        default:
+            throw new IllegalArgumentException(String.format("Code %s cannot be converted to a Rank", code));
+        }
+    }
+
     public String toString() {
         return Integer.toString(rankNumber);
     }
