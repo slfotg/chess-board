@@ -11,4 +11,23 @@ public enum CastlingRights {
     public boolean canCastleQueenSide() {
         return this == KING_SIDE || this == BOTH;
     }
+    
+    public String toString(Color color) {
+        String castleRights = "";
+        switch (this) {
+        case KING_SIDE:
+            castleRights = "K";
+            break;
+        case QUEEN_SIDE:
+            castleRights = "Q";
+            break;
+        case BOTH:
+            castleRights = "KQ";
+            default:
+        }
+        if (color == Color.BLACK) {
+            castleRights = castleRights.toLowerCase();
+        }
+        return castleRights;
+    }
 }
