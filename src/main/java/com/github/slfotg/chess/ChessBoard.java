@@ -107,7 +107,7 @@ public class ChessBoard {
             throw new IllegalArgumentException("Position cannot be null");
         }
         if (piece.getColor() == Color.WHITE) {
-            switch(piece.getPiece()) {
+            switch (piece.getPiece()) {
             case PAWN:
                 whitePawns.setPiece(position);
                 break;
@@ -128,7 +128,7 @@ public class ChessBoard {
                 break;
             }
         } else {
-            switch(piece.getPiece()) {
+            switch (piece.getPiece()) {
             case PAWN:
                 blackPawns.setPiece(position);
                 break;

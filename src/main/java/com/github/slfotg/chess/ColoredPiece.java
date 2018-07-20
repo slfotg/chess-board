@@ -2,10 +2,10 @@ package com.github.slfotg.chess;
 
 public class ColoredPiece {
 
-    private Color color;
-    private Piece piece;
+    protected Color color;
+    protected Piece piece;
 
-    private ColoredPiece() {
+    protected ColoredPiece() {
 
     }
 
