@@ -1,6 +1,7 @@
 package com.github.slfotg.chess;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ public class BitBoardTest {
         BitBoard bitBoard = new BitBoard(3L);
         assertTrue(bitBoard.hasPieceAt(new Position(Rank.ONE, File.A)));
         assertTrue(bitBoard.hasPieceAt(new Position(Rank.ONE, File.B)));
+        assertThrows(IllegalArgumentException.class, () -> bitBoard.hasPieceAt(null));
     }
 
     @Test
