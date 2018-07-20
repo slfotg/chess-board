@@ -4,8 +4,8 @@ import java.util.Optional;
 
 public class Position {
 
-    private Rank rank;
-    private File file;
+    private final Rank rank;
+    private final File file;
 
     public Position(Rank rank, File file) {
         if (rank == null) {
@@ -29,7 +29,7 @@ public class Position {
     public int getIndex() {
         return file.getIndex() + rank.getIndex() * 8;
     }
-    
+
     public static Optional<Position> fromCode(String code) {
         if (code == null) {
             throw new IllegalArgumentException("Code cannot be null");

@@ -7,7 +7,7 @@ public enum Rank {
     static final Rank[] FEN_ORDERED_RANKS = new Rank[] { EIGHT, SEVEN, SIX, FIVE, FOUR, THREE, TWO, ONE };
     static final Rank[] ORDERED_RANKS = new Rank[] { ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT };
 
-    int rankNumber;
+    private final int rankNumber;
 
     Rank(int rankNumber) {
         this.rankNumber = rankNumber;

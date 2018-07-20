@@ -2,12 +2,8 @@ package com.github.slfotg.chess;
 
 public class ColoredPiece {
 
-    protected Color color;
-    protected Piece piece;
-
-    protected ColoredPiece() {
-
-    }
+    private final Color color;
+    private final Piece piece;
 
     public ColoredPiece(Color color, Piece piece) {
         if (color == null) {
@@ -33,9 +29,6 @@ public class ColoredPiece {
     }
 
     public static ColoredPiece fromFenCode(char code) {
-        ColoredPiece piece = new ColoredPiece();
-        piece.piece = Piece.fromCode(code);
-        piece.color = Character.isUpperCase(code) ? Color.WHITE : Color.BLACK;
-        return piece;
+        return new ColoredPiece(Character.isUpperCase(code) ? Color.WHITE : Color.BLACK, Piece.fromCode(code));
     }
 }

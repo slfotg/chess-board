@@ -37,7 +37,7 @@ public enum CastlingRights {
         }
         return NONE;
     }
-    
+
     public static String toString(CastlingRights whiteRights, CastlingRights blackRights) {
         String s = whiteRights.toString(Color.WHITE) + blackRights.toString(Color.BLACK);
         if (s.length() > 0) {

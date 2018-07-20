@@ -4,7 +4,7 @@ public enum Color {
 
     WHITE('w'), BLACK('b');
 
-    private char code;
+    private final char code;
 
     Color(char code) {
         this.code = code;

@@ -7,8 +7,8 @@ public enum File {
     static final File[] FEN_ORDERED_FILES = new File[] { A, B, C, D, E, F, G, H };
     static final File[] ORDERED_FILES = new File[] { A, B, C, D, E, F, G, H };
 
-    private char code;
-    private int index;
+    private final char code;
+    private final int index;
 
     File(char code, int index) {
         this.code = code;
