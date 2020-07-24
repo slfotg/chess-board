@@ -5,10 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-public class PieceTest {
+class PieceTest {
 
     @Test
-    public void testCodes() {
+    void testCodes() {
         assertEquals('P', Piece.PAWN.getCode());
         assertEquals('N', Piece.KNIGHT.getCode());
         assertEquals('B', Piece.BISHOP.getCode());
@@ -18,7 +18,7 @@ public class PieceTest {
     }
 
     @Test
-    public void testFromCode() {
+    void testFromCode() {
         assertEquals(Piece.PAWN, Piece.fromCode('P'));
         assertEquals(Piece.KNIGHT, Piece.fromCode('N'));
         assertEquals(Piece.BISHOP, Piece.fromCode('B'));
@@ -37,7 +37,7 @@ public class PieceTest {
     }
 
     @Test
-    public void testWeights() {
+    void testWeights() {
         assertEquals(1, Piece.PAWN.getWeight());
         assertEquals(3, Piece.KNIGHT.getWeight());
         assertEquals(3, Piece.BISHOP.getWeight());
@@ -47,7 +47,7 @@ public class PieceTest {
     }
 
     @Test
-    public void testBlackToString() {
+    void testBlackToString() {
         assertEquals("p", Piece.PAWN.toString(Color.BLACK));
         assertEquals("n", Piece.KNIGHT.toString(Color.BLACK));
         assertEquals("b", Piece.BISHOP.toString(Color.BLACK));
@@ -57,7 +57,7 @@ public class PieceTest {
     }
 
     @Test
-    public void testWhiteToString() {
+    void testWhiteToString() {
         assertEquals("P", Piece.PAWN.toString(Color.WHITE));
         assertEquals("N", Piece.KNIGHT.toString(Color.WHITE));
         assertEquals("B", Piece.BISHOP.toString(Color.WHITE));
@@ -67,12 +67,12 @@ public class PieceTest {
     }
 
     @Test
-    public void testNullColor() {
+    void testNullColor() {
         assertThrows(IllegalArgumentException.class, () -> Piece.KING.toString(null));
     }
 
     @Test
-    public void testToString() {
+    void testToString() {
         assertEquals("P", Piece.PAWN.toString());
         assertEquals("N", Piece.KNIGHT.toString());
         assertEquals("B", Piece.BISHOP.toString());

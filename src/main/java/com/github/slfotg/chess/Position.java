@@ -2,18 +2,14 @@ package com.github.slfotg.chess;
 
 import java.util.Optional;
 
+import lombok.NonNull;
+
 public class Position {
 
     private final Rank rank;
     private final File file;
 
-    public Position(Rank rank, File file) {
-        if (rank == null) {
-            throw new IllegalArgumentException("Rank cannot be null");
-        }
-        if (file == null) {
-            throw new IllegalArgumentException("File cannot be null");
-        }
+    public Position(@NonNull Rank rank, @NonNull File file) {
         this.rank = rank;
         this.file = file;
     }
@@ -30,10 +26,8 @@ public class Position {
         return file.getIndex() + rank.getIndex() * 8;
     }
 
-    public static Optional<Position> fromCode(String code) {
-        if (code == null) {
-            throw new IllegalArgumentException("Code cannot be null");
-        } else if (code.equals("-")) {
+    public static Optional<Position> fromCode(@NonNull String code) {
+        if (code.equals("-")) {
             return Optional.empty();
         } else if (!code.matches("[a-h]{1}[1-8]{1}")) {
             throw new IllegalArgumentException(String.format("Code {%s} cannot be parsed to a Position", code));

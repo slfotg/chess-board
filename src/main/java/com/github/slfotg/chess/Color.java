@@ -2,7 +2,8 @@ package com.github.slfotg.chess;
 
 public enum Color {
 
-    WHITE('w'), BLACK('b');
+    WHITE('w'),
+    BLACK('b');
 
     private final char code;
 

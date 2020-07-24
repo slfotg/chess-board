@@ -1,4 +1,6 @@
-package com.github.slfotg.chess;
+package com.github.slfotg.chess.state;
+
+import com.github.slfotg.chess.Color;
 
 public enum CastlingRights {
 

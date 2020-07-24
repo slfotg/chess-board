@@ -9,10 +9,10 @@ import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 
-public class PositionTest {
+class PositionTest {
 
     @Test
-    public void testAllRankAndFiles() {
+    void testAllRankAndFiles() {
         String[] letters = new String[] { "a", "b", "c", "d", "e", "f", "g", "h" };
         String[] numbers = new String[] { "1", "2", "3", "4", "5", "6", "7", "8" };
         for (int i = 0; i < Rank.ORDERED_RANKS.length; i += 1) {
@@ -27,17 +27,17 @@ public class PositionTest {
     }
 
     @Test
-    public void testPositionNullRank() {
+    void testPositionNullRank() {
         assertThrows(IllegalArgumentException.class, () -> new Position(null, File.A));
     }
 
     @Test
-    public void testPositionNullFile() {
+    void testPositionNullFile() {
         assertThrows(IllegalArgumentException.class, () -> new Position(Rank.ONE, null));
     }
 
     @Test
-    public void testFromCode() {
+    void testFromCode() {
         Optional<Position> position = Position.fromCode("e3");
         assertTrue(position.isPresent());
         assertEquals(File.E, position.get().getFile());

@@ -5,34 +5,34 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-public class ColoredPieceTest {
+class ColoredPieceTest {
 
     @Test
-    public void testNullParamsInConstructor() {
-        assertThrows(IllegalArgumentException.class, () -> new ColoredPiece(null, null));
-        assertThrows(IllegalArgumentException.class, () -> new ColoredPiece(Color.WHITE, null));
-        assertThrows(IllegalArgumentException.class, () -> new ColoredPiece(null, Piece.ROOK));
+    void testNullParamsInConstructor() {
+        assertThrows(IllegalArgumentException.class, () -> ColoredPiece.fromColorAndPiece(null, null));
+        assertThrows(IllegalArgumentException.class, () -> ColoredPiece.fromColorAndPiece(Color.WHITE, null));
+        assertThrows(IllegalArgumentException.class, () -> ColoredPiece.fromColorAndPiece(null, Piece.ROOK));
     }
 
     @Test
-    public void testGetFenCode() {
-        assertEquals("P", new ColoredPiece(Color.WHITE, Piece.PAWN).getFenCode());
-        assertEquals("N", new ColoredPiece(Color.WHITE, Piece.KNIGHT).getFenCode());
-        assertEquals("B", new ColoredPiece(Color.WHITE, Piece.BISHOP).getFenCode());
-        assertEquals("R", new ColoredPiece(Color.WHITE, Piece.ROOK).getFenCode());
-        assertEquals("Q", new ColoredPiece(Color.WHITE, Piece.QUEEN).getFenCode());
-        assertEquals("K", new ColoredPiece(Color.WHITE, Piece.KING).getFenCode());
+    void testGetFenCode() {
+        assertEquals("P", ColoredPiece.fromColorAndPiece(Color.WHITE, Piece.PAWN).getFenCode());
+        assertEquals("N", ColoredPiece.fromColorAndPiece(Color.WHITE, Piece.KNIGHT).getFenCode());
+        assertEquals("B", ColoredPiece.fromColorAndPiece(Color.WHITE, Piece.BISHOP).getFenCode());
+        assertEquals("R", ColoredPiece.fromColorAndPiece(Color.WHITE, Piece.ROOK).getFenCode());
+        assertEquals("Q", ColoredPiece.fromColorAndPiece(Color.WHITE, Piece.QUEEN).getFenCode());
+        assertEquals("K", ColoredPiece.fromColorAndPiece(Color.WHITE, Piece.KING).getFenCode());
 
-        assertEquals("p", new ColoredPiece(Color.BLACK, Piece.PAWN).getFenCode());
-        assertEquals("n", new ColoredPiece(Color.BLACK, Piece.KNIGHT).getFenCode());
-        assertEquals("b", new ColoredPiece(Color.BLACK, Piece.BISHOP).getFenCode());
-        assertEquals("r", new ColoredPiece(Color.BLACK, Piece.ROOK).getFenCode());
-        assertEquals("q", new ColoredPiece(Color.BLACK, Piece.QUEEN).getFenCode());
-        assertEquals("k", new ColoredPiece(Color.BLACK, Piece.KING).getFenCode());
+        assertEquals("p", ColoredPiece.fromColorAndPiece(Color.BLACK, Piece.PAWN).getFenCode());
+        assertEquals("n", ColoredPiece.fromColorAndPiece(Color.BLACK, Piece.KNIGHT).getFenCode());
+        assertEquals("b", ColoredPiece.fromColorAndPiece(Color.BLACK, Piece.BISHOP).getFenCode());
+        assertEquals("r", ColoredPiece.fromColorAndPiece(Color.BLACK, Piece.ROOK).getFenCode());
+        assertEquals("q", ColoredPiece.fromColorAndPiece(Color.BLACK, Piece.QUEEN).getFenCode());
+        assertEquals("k", ColoredPiece.fromColorAndPiece(Color.BLACK, Piece.KING).getFenCode());
     }
 
     @Test
-    public void testFromFenCode() {
+    void testFromFenCode() {
         assertEquals(Color.WHITE, ColoredPiece.fromFenCode('P').getColor());
         assertEquals(Piece.PAWN, ColoredPiece.fromFenCode('P').getPiece());
 

@@ -1,34 +1,47 @@
 package com.github.slfotg.chess;
 
-public class ColoredPiece {
+import lombok.Getter;
+import lombok.NonNull;
+
+@Getter
+public enum ColoredPiece {
+
+    WHITE_PAWN(Color.WHITE, Piece.PAWN, '♙'),
+    WHITE_KNIGHT(Color.WHITE, Piece.KNIGHT, '♘'),
+    WHITE_BISHOP(Color.WHITE, Piece.BISHOP, '♗'),
+    WHITE_ROOK(Color.WHITE, Piece.ROOK, '♖'),
+    WHITE_QUEEN(Color.WHITE, Piece.QUEEN, '♕'),
+    WHITE_KING(Color.WHITE, Piece.KING, '♔'),
+
+    BLACK_PAWN(Color.BLACK, Piece.PAWN, '♟'),
+    BLACK_KNIGHT(Color.BLACK, Piece.KNIGHT, '♞'),
+    BLACK_BISHOP(Color.BLACK, Piece.BISHOP, '♝'),
+    BLACK_ROOK(Color.BLACK, Piece.ROOK, '♜'),
+    BLACK_QUEEN(Color.BLACK, Piece.QUEEN, '♛'),
+    BLACK_KING(Color.BLACK, Piece.KING, '♚');
 
     private final Color color;
     private final Piece piece;
+    private final char charRepresentation;
 
-    public ColoredPiece(Color color, Piece piece) {
-        if (color == null) {
-            throw new IllegalArgumentException("Color cannot be null");
-        }
-        if (piece == null) {
-            throw new IllegalArgumentException("Piece cannot be null");
-        }
+    ColoredPiece(Color color, Piece piece, char charRepresentation) {
         this.color = color;
         this.piece = piece;
+        this.charRepresentation = charRepresentation;
     }
 
-    public Color getColor() {
-        return color;
+    public static ColoredPiece fromColorAndPiece(@NonNull Color color, @NonNull Piece piece) {
+        return ColoredPiece.valueOf(color.name() + "_" + piece.name());
     }
 
-    public Piece getPiece() {
-        return piece;
-    }
-
+    // TODO - move to FEN parser
     public String getFenCode() {
         return piece.toString(color);
     }
 
+    // TODO - move to FEN parser
     public static ColoredPiece fromFenCode(char code) {
-        return new ColoredPiece(Character.isUpperCase(code) ? Color.WHITE : Color.BLACK, Piece.fromCode(code));
+        return ColoredPiece.fromColorAndPiece(Character.isUpperCase(code) ? Color.WHITE : Color.BLACK,
+                Piece.fromCode(code));
     }
 }

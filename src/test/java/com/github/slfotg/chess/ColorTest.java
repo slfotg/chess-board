@@ -5,29 +5,29 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-public class ColorTest {
+class ColorTest {
 
     @Test
-    public void testCodes() {
+    void testCodes() {
         assertEquals('w', Color.WHITE.getCode());
         assertEquals('b', Color.BLACK.getCode());
     }
 
     @Test
-    public void testFromCode() {
+    void testFromCode() {
         assertEquals(Color.WHITE, Color.fromCode('w'));
         assertEquals(Color.BLACK, Color.fromCode('b'));
         assertThrows(IllegalArgumentException.class, () -> Color.fromCode('d'));
     }
 
     @Test
-    public void testToString() {
+    void testToString() {
         assertEquals("w", Color.WHITE.toString());
         assertEquals("b", Color.BLACK.toString());
     }
-    
+
     @Test
-    public void testGetNextColor() {
+    void testGetNextColor() {
         assertEquals(Color.BLACK, Color.WHITE.getNextColor());
         assertEquals(Color.WHITE, Color.BLACK.getNextColor());
     }

@@ -5,10 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-public class RankTest {
+class RankTest {
 
     @Test
-    public void testFromCode() {
+    void testFromCode() {
         assertEquals(Rank.ONE, Rank.fromCode('1'));
         assertEquals(Rank.TWO, Rank.fromCode('2'));
         assertEquals(Rank.THREE, Rank.fromCode('3'));
@@ -21,7 +21,7 @@ public class RankTest {
     }
 
     @Test
-    public void testGetRankNumber() {
+    void testGetRankNumber() {
         assertEquals(1, Rank.ONE.getRankNumber());
         assertEquals(2, Rank.TWO.getRankNumber());
         assertEquals(3, Rank.THREE.getRankNumber());
@@ -33,7 +33,7 @@ public class RankTest {
     }
 
     @Test
-    public void testGetIndex() {
+    void testGetIndex() {
         assertEquals(0, Rank.ONE.getIndex());
         assertEquals(1, Rank.TWO.getIndex());
         assertEquals(2, Rank.THREE.getIndex());
@@ -45,7 +45,7 @@ public class RankTest {
     }
 
     @Test
-    public void testToString() {
+    void testToString() {
         assertEquals("1", Rank.ONE.toString());
         assertEquals("2", Rank.TWO.toString());
         assertEquals("3", Rank.THREE.toString());

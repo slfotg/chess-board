@@ -1,10 +1,13 @@
-package com.github.slfotg.chess;
+package com.github.slfotg.chess.state;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
+
+import com.github.slfotg.chess.Color;
+import com.github.slfotg.chess.state.CastlingRights;
 
 public class CastlingRightsTest {
 

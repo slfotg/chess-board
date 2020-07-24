@@ -5,10 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-public class FileTest {
+class FileTest {
 
     @Test
-    public void testGetCode() {
+    void testGetCode() {
         assertEquals('a', File.A.getCode());
         assertEquals('b', File.B.getCode());
         assertEquals('c', File.C.getCode());
@@ -20,7 +20,7 @@ public class FileTest {
     }
 
     @Test
-    public void testGetIndex() {
+    void testGetIndex() {
         assertEquals(0, File.A.getIndex());
         assertEquals(1, File.B.getIndex());
         assertEquals(2, File.C.getIndex());
@@ -32,7 +32,7 @@ public class FileTest {
     }
 
     @Test
-    public void testFromCode() {
+    void testFromCode() {
         assertEquals(File.A, File.fromCode('a'));
         assertEquals(File.B, File.fromCode('b'));
         assertEquals(File.C, File.fromCode('c'));
@@ -54,7 +54,7 @@ public class FileTest {
     }
 
     @Test
-    public void testToString() {
+    void testToString() {
         assertEquals("a", File.A.toString());
         assertEquals("b", File.B.toString());
         assertEquals("c", File.C.toString());

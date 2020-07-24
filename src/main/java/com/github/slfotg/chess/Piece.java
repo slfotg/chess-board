@@ -2,7 +2,12 @@ package com.github.slfotg.chess;
 
 public enum Piece {
 
-    PAWN(1, 'P'), KNIGHT(3, 'N'), BISHOP(3, 'B'), ROOK(5, 'R'), QUEEN(9, 'Q'), KING(0, 'K');
+    PAWN(1, 'P'),
+    KNIGHT(3, 'N'),
+    BISHOP(3, 'B'),
+    ROOK(5, 'R'),
+    QUEEN(9, 'Q'),
+    KING(0, 'K');
 
     private final char code;
     private final int weight;
