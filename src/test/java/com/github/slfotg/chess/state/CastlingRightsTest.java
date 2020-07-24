@@ -9,10 +9,10 @@ import org.junit.jupiter.api.Test;
 import com.github.slfotg.chess.Color;
 import com.github.slfotg.chess.state.CastlingRights;
 
-public class CastlingRightsTest {
+class CastlingRightsTest {
 
     @Test
-    public void testCanCastleKingSide() {
+    void testCanCastleKingSide() {
         assertTrue(CastlingRights.BOTH.canCastleKingSide());
         assertTrue(CastlingRights.KING_SIDE.canCastleKingSide());
         assertFalse(CastlingRights.QUEEN_SIDE.canCastleKingSide());
@@ -20,7 +20,7 @@ public class CastlingRightsTest {
     }
 
     @Test
-    public void testCanCastleQueenSide() {
+    void testCanCastleQueenSide() {
         assertTrue(CastlingRights.BOTH.canCastleQueenSide());
         assertFalse(CastlingRights.KING_SIDE.canCastleQueenSide());
         assertTrue(CastlingRights.QUEEN_SIDE.canCastleQueenSide());
@@ -28,7 +28,7 @@ public class CastlingRightsTest {
     }
 
     @Test
-    public void testParseWhiteRights() {
+    void testParseWhiteRights() {
         assertEquals(CastlingRights.BOTH, CastlingRights.parseWhiteRights("KQkq"));
         assertEquals(CastlingRights.BOTH, CastlingRights.parseWhiteRights("KQk"));
         assertEquals(CastlingRights.BOTH, CastlingRights.parseWhiteRights("KQq"));
@@ -48,7 +48,7 @@ public class CastlingRightsTest {
     }
 
     @Test
-    public void testParseBlackRights() {
+    void testParseBlackRights() {
         assertEquals(CastlingRights.BOTH, CastlingRights.parseBlackRights("KQkq"));
         assertEquals(CastlingRights.KING_SIDE, CastlingRights.parseBlackRights("KQk"));
         assertEquals(CastlingRights.QUEEN_SIDE, CastlingRights.parseBlackRights("KQq"));
@@ -68,7 +68,7 @@ public class CastlingRightsTest {
     }
 
     @Test
-    public void testToString() {
+    void testToString() {
         assertEquals("KQ", CastlingRights.BOTH.toString(Color.WHITE));
         assertEquals("K", CastlingRights.KING_SIDE.toString(Color.WHITE));
         assertEquals("Q", CastlingRights.QUEEN_SIDE.toString(Color.WHITE));

@@ -90,7 +90,7 @@
                             </execution>
                             <execution>
                                 <id>restore</id>
-                                <phase>test</phase>
+                                <phase>verify</phase>
                                 <goals>
                                     <goal>restore-instrumented-classes</goal>
                                     <goal>report</goal>
