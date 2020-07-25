@@ -5,4 +5,4 @@ script:
     - mvn test -B -Pjacoco
 after_script:
     - env
-    - "[[ $TRAVIS_PULL_REQUEST == false ]] && mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent verify sonar:sonar -Dsonar.organization=slfotg-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${SONAR_TOKEN}"
+    - "[[ $TRAVIS_PULL_REQUEST == false ]] && mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent verify sonar:sonar -Pjacoco -Dsonar.organization=slfotg-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${SONAR_TOKEN}"
